@@ -22,11 +22,9 @@ body {
 
 /* Modify the programs page background */
 body.programs-bg .body-bg-overlay {
-    background: 
-        linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
-        url('about2.jpg') center center/cover no-repeat;
-    filter: opacity(0.90);
-    display: block; /* Override the previous display: none */
+    background: none;
+    filter: none;
+    display: none;
 }
 
 .body-bg-grain {
@@ -579,17 +577,55 @@ body.programs-bg .body-bg-grain {
 
 .programs-map-embed {
     width: 100%;
-    margin-top: 1rem;
-    border-radius: 12px;
-    overflow: hidden;
+    height: 100%;
+    min-height: 320px;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
 }
 
 .programs-detail-box iframe {
     width: 100%;
-    min-height: 220px;
+    min-height: 320px;
+    height: 100%;
     border: 0;
     border-radius: 12px;
     display: block;
+    max-width: 100%;
+}
+
+.programs-detail-subboxes {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-top: 1.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.programs-detail-subbox {
+    background: #f4592f;
+    color: #fff;
+    border-radius: 14px;
+    padding: 1rem 1.2rem;
+    min-width: 180px;
+    flex: 1 1 0;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 500;
+    box-shadow: 0 2px 10px rgba(244,89,47,0.10);
+}
+
+@media (max-width: 900px) {
+    .programs-detail-subboxes {
+        flex-direction: column;
+        gap: 0.8rem;
+        align-items: center;
+    }
+    .programs-detail-subbox {
+        min-width: unset;
+        width: 100%;
+    }
 }
 
 .programs-schedule-section {
@@ -602,6 +638,13 @@ body.programs-bg .body-bg-grain {
     padding: 2.5rem 2rem;
     text-align: center;
     width: 100%;            /* Ensure full width within max-width */
+}
+
+.programs-schedule-heading {
+    color: #f4592f; /* Use the same orange as other headings */
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
 }
 
 /* Add this for about and programs page backgrounds */
